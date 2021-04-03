@@ -2,11 +2,12 @@
   position: relative;
   margin-right: auto;
   display: flex;
+  flex-direction: column;
   justify-content: flex-start;
   align-items: flex-end;
 
   width: 20%;
-  height: 40%;
+  height: 100%;
 
-  border: 1px solid red;
+  background-color: #333333;
 }

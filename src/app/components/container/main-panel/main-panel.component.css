@@ -6,7 +6,7 @@
   align-items: flex-end;
 
   width: 80%;
-  height: 40%;
+  height: 100%;
 
-  border: 1px solid blue;
+  background-color: #FFFFFF;
 }
