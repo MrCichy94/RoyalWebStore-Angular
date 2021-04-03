@@ -1,17 +1,27 @@
-<p>Read all products:</p>
-<div class="places" *ngIf="products">
-  <li *ngFor="let product of products; index as i; first as isFirst">
-    <div>
-      {{product.productId}} <br>
-      {{product.productName}} <br>
-      {{product.type}} <br>
-      {{product.version}} <br>
-      {{product.productDescription}} <br>
-      {{product.sellBaseGrossPrice}} zł<br>
-      {{product.sellBaseNetPrice}} zł<br>
-      {{product.vatPercentage}} <br>
-      {{product.vatValue}} zł <br>
-      <span *ngIf="isFirst"></span>
-    </div>
-  </li>
+<div class="content-box">
+  <div class="title">Read all products:</div>
+  <div class="products" *ngIf="products">
+    <li *ngFor="let product of products; index as i; first as isFirst">
+      <div class="item">
+        {{product.productName}} <br>
+        {{product.type}} <br>
+        {{product.version}} <br>
+        {{product.productDescription}} <br>
+        {{product.sellBaseGrossPrice}} zł<br>
+        <span *ngIf="isFirst"></span>
+      </div>
+    </li>
+  </div>
+  <div class="products" *ngIf="products">
+    <li *ngFor="let product of products; index as i; first as isFirst">
+      <div class="item">
+        {{product.productName}} <br>
+        {{product.type}} <br>
+        {{product.version}} <br>
+        {{product.productDescription}} <br>
+        {{product.sellBaseGrossPrice}} zł<br>
+        <span *ngIf="isFirst"></span>
+      </div>
+    </li>
+  </div>
 </div>

@@ -9,3 +9,47 @@
 
   background-color: #23262C;
 }
+
+.user-frame{
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  height: 100%;
+}
+
+.user-data{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  font-weight: bold;
+  color: white;
+
+  width: 100%;
+  height: 20%;
+}
+
+.img-box {
+  position: relative;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 80%;
+}
+
+.user-img{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100px;
+  height: 100px;
+
+  background-color: darkred;
+  border-radius: 50%;
+}

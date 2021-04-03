@@ -15,6 +15,7 @@ import {RouterModule} from '@angular/router';
 import {AppRoutingModule} from './app-routing.module';
 import { ContentComponent } from './components/container/main-panel/content/content.component';
 import { ProductsComponent } from './components/container/main-panel/content/products/products.component';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -29,11 +30,12 @@ import { ProductsComponent } from './components/container/main-panel/content/pro
     ContentComponent,
     ProductsComponent
   ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    AppRoutingModule
-  ],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        AppRoutingModule,
+        MatIconModule
+    ],
   exports: [RouterModule],
   providers: [
     {provide: 'ORIGIN_URL', useValue: location.origin},
