@@ -2,6 +2,7 @@
   position: relative;
   margin-left: auto;
   display: flex;
+  flex-direction: column;
   justify-content: flex-end;
   align-items: flex-end;
 
@@ -10,3 +11,5 @@
 
   background-color: #FFFFFF;
 }
+
+

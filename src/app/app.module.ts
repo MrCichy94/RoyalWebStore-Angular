@@ -10,6 +10,11 @@ import { NavbarComponent } from './components/container/main-panel/navbar/navbar
 import { UserImageComponent } from './components/container/left-panel/user-image/user-image.component';
 import { OptionListComponent } from './components/container/left-panel/option-list/option-list.component';
 import { OptionComponent } from './components/container/left-panel/option-list/option/option.component';
+import {HttpClientModule} from '@angular/common/http';
+import {RouterModule} from '@angular/router';
+import {AppRoutingModule} from './app-routing.module';
+import { ContentComponent } from './components/container/main-panel/content/content.component';
+import { ProductsComponent } from './components/container/main-panel/content/products/products.component';
 
 @NgModule({
   declarations: [
@@ -20,11 +25,16 @@ import { OptionComponent } from './components/container/left-panel/option-list/o
     NavbarComponent,
     UserImageComponent,
     OptionListComponent,
-    OptionComponent
+    OptionComponent,
+    ContentComponent,
+    ProductsComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
+    AppRoutingModule
   ],
+  exports: [RouterModule],
   providers: [
     {provide: 'ORIGIN_URL', useValue: location.origin},
     ScriptService],
