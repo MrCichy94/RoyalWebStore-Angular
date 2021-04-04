@@ -1,13 +1,13 @@
-import { NgModule } from '@angular/core';
-import {MainPanelComponent} from './components/container/main-panel/main-panel.component';
+import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {ProductsComponent} from './components/container/main-panel/content/products/products.component';
-import {ContentComponent} from './components/container/main-panel/content/content.component';
 import {ProductComponent} from './components/container/main-panel/content/products/product/product.component';
 
 const routes: Routes = [
   {path: 'products', component: ProductsComponent},
   {path: 'products/:productId', component: ProductComponent},
+  {path: 'customers/carts', component: ProductsComponent},
+  {path: 'customers/orders', component: ProductsComponent},
 ];
 
 @NgModule({
@@ -18,4 +18,5 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

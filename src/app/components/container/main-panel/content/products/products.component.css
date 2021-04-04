@@ -37,7 +37,15 @@ li{
 .item {
   position: relative;
   display: flex;
+  flex-direction: column;
+}
+
+.productInfo{
+  position: relative;
+  display: flex;
   margin: auto;
+
+  width: 100%;
 }
 
 .title{
@@ -52,13 +60,25 @@ li{
 }
 
 .moreBtn{
-  width: 15%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+
+  width: 100%;
 }
 
 .moreBtn a{
-  border-radius: 12%;
-  padding: 8%;
+  border-radius: 10px;
+  padding: 4%;
   background-color: rgba(190, 0, 0, 0.6);
   text-decoration: none;
   color: inherit;
+}
+
+.moreBtn a:hover{
+  opacity: 0.8;
+  font-weight: bold;
+  cursor: pointer;
 }

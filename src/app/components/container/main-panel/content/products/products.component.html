@@ -3,14 +3,16 @@
   <div class="products" *ngIf="products">
     <li *ngFor="let product of products; index as i; first as isFirst">
       <div class="item">
-        {{product.productName}} <br>
-        {{product.type}} <br>
-        {{product.version}} <br>
-        {{product.productDescription}} <br>
-        {{product.sellBaseGrossPrice}} zł<br>
-
+        <div class="productInfo">
+          {{product.productName}} <br>
+          {{product.type}} <br>
+          {{product.version}} <br>
+          {{product.productDescription}} <br>
+          {{product.sellBaseGrossPrice}} zł<br>
+        </div>
+        <div class="moreBtn">
           <a routerLinkActive="active" [routerLink]="['/products', product.productId]">więcej...</a>
-
+        </div>
         <span *ngIf="isFirst"></span>
       </div>
     </li>

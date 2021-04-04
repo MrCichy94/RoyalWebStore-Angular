@@ -1,5 +1,17 @@
-{{product.productName}} <br>
-{{product.type}} <br>
-{{product.version}} <br>
-{{product.productDescription}} <br>
-{{product.sellBaseGrossPrice}} zł<br>
+<div class="content-box">
+  <div class="title">Read product: {{product.productName}}</div>
+  <div class="products" *ngIf="product">
+    <div class="item">
+      <div class="productInfo">
+        {{product.productName}} <br>
+        {{product.type}} <br>
+        {{product.version}} <br>
+        {{product.productDescription}} <br>
+        {{product.sellBaseGrossPrice}} zł<br>
+      </div>
+      <div class="backBtn" onclick="history.go(-1)">
+        <a>Powrót</a>
+      </div>
+    </div>
+  </div>
+</div>
