@@ -8,6 +8,9 @@
         {{product.version}} <br>
         {{product.productDescription}} <br>
         {{product.sellBaseGrossPrice}} zł<br>
+
+          <a routerLinkActive="active" [routerLink]="['/products', product.productId]">więcej...</a>
+
         <span *ngIf="isFirst"></span>
       </div>
     </li>

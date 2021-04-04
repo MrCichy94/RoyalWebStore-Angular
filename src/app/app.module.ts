@@ -16,6 +16,7 @@ import {AppRoutingModule} from './app-routing.module';
 import { ContentComponent } from './components/container/main-panel/content/content.component';
 import { ProductsComponent } from './components/container/main-panel/content/products/products.component';
 import {MatIconModule} from '@angular/material/icon';
+import { ProductComponent } from './components/container/main-panel/content/products/product/product.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {MatIconModule} from '@angular/material/icon';
     OptionListComponent,
     OptionComponent,
     ContentComponent,
-    ProductsComponent
+    ProductsComponent,
+    ProductComponent
   ],
     imports: [
         BrowserModule,
