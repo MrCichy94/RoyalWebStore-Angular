@@ -17,6 +17,12 @@ import { ContentComponent } from './components/container/main-panel/content/cont
 import { ProductsComponent } from './components/container/main-panel/content/products/products.component';
 import {MatIconModule} from '@angular/material/icon';
 import { ProductComponent } from './components/container/main-panel/content/products/product/product.component';
+import { CartsComponent } from './components/container/main-panel/content/carts/carts.component';
+import { OrdersComponent } from './components/container/main-panel/content/orders/orders.component';
+import { OrderComponent } from './components/container/main-panel/content/orders/order/order.component';
+import { CartComponent } from './components/container/main-panel/content/carts/cart/cart.component';
+import { CopiesComponent } from './components/container/main-panel/content/products/product/copies/copies.component';
+import { CopyComponent } from './components/container/main-panel/content/products/product/copies/copy/copy.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +36,13 @@ import { ProductComponent } from './components/container/main-panel/content/prod
     OptionComponent,
     ContentComponent,
     ProductsComponent,
-    ProductComponent
+    ProductComponent,
+    CartsComponent,
+    OrdersComponent,
+    OrderComponent,
+    CartComponent,
+    CopiesComponent,
+    CopyComponent
   ],
     imports: [
         BrowserModule,
