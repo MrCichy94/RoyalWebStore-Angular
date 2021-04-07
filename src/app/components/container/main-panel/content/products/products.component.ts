@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {CurrencyClientService, Product} from '../../../../services/currency-client.service';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
+import {Product, ProductServiceService} from '../../../../services/productService/product-service.service';
 
 @Component({
   selector: 'app-products',
@@ -11,10 +11,11 @@ export class ProductsComponent implements OnInit {
 
   products: Product[];
 
-  constructor(private currencyClientService: CurrencyClientService, private route: ActivatedRoute) { }
+  constructor(private productServiceService: ProductServiceService, private route: ActivatedRoute) {
+  }
 
   ngOnInit(): void {
-    this.currencyClientService.getAllProducts().subscribe(value => {
+    this.productServiceService.getAllProducts().subscribe(value => {
       this.products = value;
     });
   }

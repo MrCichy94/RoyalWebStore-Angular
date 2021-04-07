@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import {CurrencyClientService, Product} from '../../services/currency-client.service';
-import {ActivatedRoute} from '@angular/router';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-main-panel',
@@ -10,7 +8,8 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class MainPanelComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

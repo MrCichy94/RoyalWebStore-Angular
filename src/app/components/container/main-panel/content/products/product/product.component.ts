@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {CurrencyClientService, Product} from '../../../../../services/currency-client.service';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
+import {Product, ProductServiceService} from '../../../../../services/productService/product-service.service';
 
 @Component({
   selector: 'app-product',
@@ -11,14 +11,16 @@ export class ProductComponent implements OnInit {
 
   product: Product;
 
-  constructor(private currencyClientService: CurrencyClientService, private route: ActivatedRoute) { }
+  constructor(private productServiceService: ProductServiceService, private route: ActivatedRoute) {
+  }
 
   ngOnInit(): void {
     this.getProductById();
   }
+
   getProductById(): void {
     const id = +this.route.snapshot.paramMap.get('productId');
-    this.currencyClientService.getProductById(id)
+    this.productServiceService.getProductById(id)
       .subscribe(product => this.product = product);
   }
 
