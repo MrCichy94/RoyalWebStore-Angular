@@ -1,1 +1,29 @@
-<p>cart works!</p>
+<div class="content-box">
+  <div class="title">Positions on your cart:</div>
+  <div class="carts" *ngIf="carts">
+    <li *ngFor="let cart of carts; index as i; first as isFirst">
+      <div class="item">
+        <div class="cartInfo">
+          {{cart.cartItems["1"].copy.merchandisingCode}} <br>
+          {{cart.cartItems["2"].copy.merchandisingCode}} <br>
+        </div>
+        <div class="backBtn" onclick="history.go(-1)">
+          <a>Powrót</a>
+        </div>
+        <span *ngIf="isFirst"></span>
+      </div>
+    </li>
+  </div>
+  <div class="carts" *ngIf="carts">
+    <li *ngFor="let cart of carts; index as i; first as isFirst">
+      <div class="item">
+        {{cart.cartId}} <br>
+        {{cart.cartItems}} <br>
+        {{cart.customerId}} <br>
+        {{cart.grandTotal}} <br>
+        <span *ngIf="isFirst"></span>
+      </div>
+    </li>
+  </div>
+</div>
+

@@ -9,14 +9,14 @@ import {Cart, CartServiceService} from '../../../../services/cartService/cart-se
 })
 export class CartsComponent implements OnInit {
 
-  cart: Cart[];
+  carts: Cart[];
 
   constructor(private cartServiceService: CartServiceService, private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
     this.cartServiceService.getAllCarts().subscribe(value => {
-      this.cart = value;
+      this.carts = value;
     });
   }
 

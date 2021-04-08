@@ -10,13 +10,13 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class OrdersComponent implements OnInit {
 
-  order: Order[];
+  orders: Order[];
 
   constructor(private orderServiceService: OrderServiceService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.orderServiceService.getAllOrders().subscribe(value => {
-      this.order = value;
+      this.orders = value;
     });
   }
 

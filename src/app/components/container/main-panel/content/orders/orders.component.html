@@ -1,1 +1,33 @@
-<p>orders works!</p>
+<div class="content-box">
+  <div class="title">Read all orders:</div>
+  <div class="orders" *ngIf="orders">
+    <li *ngFor="let order of orders; index as i; first as isFirst">
+      <div class="item">
+        <div class="orderInfo">
+          {{order.orderId}} <br>
+          {{order.customerId}} <br>
+          {{order.fulfill}} <br>
+          {{order.orderAcceptanceDate}} <br>
+          {{order.copies}} <br>
+        </div>
+        <div class="moreBtn">
+          <a routerLinkActive="active" [routerLink]="['/customers/orders', order.orderId]">więcej...</a>
+        </div>
+        <span *ngIf="isFirst"></span>
+      </div>
+    </li>
+  </div>
+  <div class="orders" *ngIf="orders">
+    <li *ngFor="let order of orders; index as i; first as isFirst">
+      <div class="item">
+        {{order.orderId}} <br>
+        {{order.customerId}} <br>
+        {{order.fulfill}} <br>
+        {{order.orderAcceptanceDate}} <br>
+        {{order.copies}} <br>
+        <span *ngIf="isFirst"></span>
+      </div>
+    </li>
+  </div>
+</div>
+
