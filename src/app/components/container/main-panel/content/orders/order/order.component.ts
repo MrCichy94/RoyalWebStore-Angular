@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Order, OrderServiceService} from '../../../../../services/orderService/order-service.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-order',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrderComponent implements OnInit {
 
-  constructor() { }
+  orders: Order[];
+
+  constructor(private orderCartServiceService: OrderServiceService, private route: ActivatedRoute) {
+  }
 
   ngOnInit(): void {
+    this.orderCartServiceService.getAllOrders().subscribe(value => {
+      this.orders = value;
+    });
   }
 
 }

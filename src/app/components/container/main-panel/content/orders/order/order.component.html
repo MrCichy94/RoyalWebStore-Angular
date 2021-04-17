@@ -1,1 +1,34 @@
-<p>order works!</p>
+<div class="content-box">
+  <div class="title">Positions on your order:</div>
+  <div class="orders" *ngIf="orders">
+    <li *ngFor="let order of orders; index as i; first as isFirst">
+      <div class="item">
+        <div class="orderInfo">
+
+
+          <div class="copiesBox" *ngFor="let item of order.copies">
+              {{item.merchandisingCode}}
+          </div>
+
+
+        </div>
+        <div class="backBtn" onclick="history.go(-1)">
+          <a>Powrót</a>
+        </div>
+        <span *ngIf="isFirst"></span>
+      </div>
+    </li>
+  </div>
+  <div class="orders" *ngIf="orders">
+    <li *ngFor="let order of orders; index as i; first as isFirst">
+      <div class="item">
+        {{order.orderId}} <br>
+        {{order.orderAcceptanceDate}} <br>
+        {{order.orderFulfillmentDate}} <br>
+        {{order.paid}} <br>
+        {{order.customerId}} <br>
+        <span *ngIf="isFirst"></span>
+      </div>
+    </li>
+  </div>
+</div>
