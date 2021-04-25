@@ -18,7 +18,7 @@ export class ProductServiceService {
   public getAllProducts(): Observable<Product[]> {
     const headers = new HttpHeaders({
       'Content-type': 'application/x-www-form-urlencoded; charset=utf-8',
-      'Authorization': 'Bearer ' + Cookie.get('access_token')
+      'Authorization': 'Bearer ' + sessionStorage.getItem('access_token')
     });
     console.log('Redirect for resource: ' + 'http://localhost:8080/products');
     console.log(Cookie.get('access_token'));
