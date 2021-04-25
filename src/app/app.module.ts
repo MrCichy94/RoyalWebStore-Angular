@@ -23,6 +23,8 @@ import { OrderComponent } from './components/container/main-panel/content/orders
 import { CartComponent } from './components/container/main-panel/content/carts/cart/cart.component';
 import { CopiesComponent } from './components/container/main-panel/content/products/product/copies/copies.component';
 import { CopyComponent } from './components/container/main-panel/content/products/product/copies/copy/copy.component';
+import { LoginComponent } from './components/container/main-panel/content/login/login.component';
+import { AlertComponent } from './components/container/main-panel/content/login/alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { CopyComponent } from './components/container/main-panel/content/product
     OrderComponent,
     CartComponent,
     CopiesComponent,
-    CopyComponent
+    CopyComponent,
+    LoginComponent,
+    AlertComponent
   ],
     imports: [
         BrowserModule,
@@ -57,6 +61,7 @@ import { CopyComponent } from './components/container/main-panel/content/product
   bootstrap: [AppComponent]
 })
 export class AppModule {
+
 }
 
 

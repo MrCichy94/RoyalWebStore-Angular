@@ -60,7 +60,7 @@ li{
   width: 80%;
   height: 20%;
   border: 1px solid red;
-  border-radius: 10%;
+  border-radius: 10px;
   justify-content: center;
   align-items: center;
 }

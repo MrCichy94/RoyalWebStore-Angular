@@ -1,21 +1,28 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {Cookie} from 'ng2-cookies';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductServiceService {
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private http: HttpClient) {
   }
 
   public getProductById(id: number): Observable<Product> {
-    return this.httpClient.get<Product>('http://localhost:8080/products/' + id);
+    return this.http.get<Product>('http://localhost:8080/products/' + id);
   }
 
   public getAllProducts(): Observable<Product[]> {
-    return this.httpClient.get<Product[]>('http://localhost:8080/products');
+    const headers = new HttpHeaders({
+      'Content-type': 'application/x-www-form-urlencoded; charset=utf-8',
+      'Authorization': 'Bearer ' + Cookie.get('access_token')
+    });
+    console.log('Redirect for resource: ' + 'http://localhost:8080/products');
+    console.log(Cookie.get('access_token'));
+    return this.http.get<Product[]>('http://localhost:8080/products', {headers: headers});
   }
 }
 

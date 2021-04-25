@@ -6,8 +6,10 @@ import {OrdersComponent} from './components/container/main-panel/content/orders/
 import {CartsComponent} from './components/container/main-panel/content/carts/carts.component';
 import {CartComponent} from './components/container/main-panel/content/carts/cart/cart.component';
 import {OrderComponent} from './components/container/main-panel/content/orders/order/order.component';
+import {LoginComponent} from './components/container/main-panel/content/login/login.component';
 
 const routes: Routes = [
+  {path: '', component: LoginComponent},
   {path: 'products', component: ProductsComponent},
   {path: 'products/:productId', component: ProductComponent},
   {path: 'customers/carts', component: CartsComponent},
