@@ -1,9 +1,7 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Cookie} from 'ng2-cookies';
-import {BehaviorSubject, Observable, Subject} from 'rxjs';
+import {HttpClient} from '@angular/common/http';
+import {BehaviorSubject, Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
-import {Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -30,10 +28,13 @@ export class AuthenticationService {
       observe: 'response'
     })
       .pipe(map(res => {
-        const myHeader = res.headers.get('Authorization');
-        sessionStorage.setItem('access_token', myHeader);
+        const userToken = res.headers.get('Authorization');
+        const userId = res.headers.get('Principal-ID');
+        sessionStorage.setItem('thisUserID', userId);
+        sessionStorage.setItem('access_token', userToken);
         console.log(res.headers);
-        console.log(myHeader);
+        console.log(userId);
+        console.log(userToken);
         const myUser = new User();
         myUser.username = this.credentials.username;
         sessionStorage.setItem('currentUser', JSON.stringify(myUser));
@@ -41,24 +42,9 @@ export class AuthenticationService {
       }));
   }
 
-  saveTokenInfo(token) {
-    console.log('Obtained Access token');
-  }
-
   public get currentUserValue(): User {
     return this.currentUserSubject.value;
   }
-
-  /*
-  login(username, password) {
-    return this.http.post<any>(`http://localhost:8080/login`, { username, password })
-      .pipe(map(user => {
-        sessionStorage.setItem('currentUser', JSON.stringify(user));
-        this.currentUserSubject.next(user);
-        return user;
-      }));
-  }
-   */
 
   logout() {
     sessionStorage.removeItem('currentUser');

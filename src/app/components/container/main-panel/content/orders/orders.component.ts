@@ -15,7 +15,9 @@ export class OrdersComponent implements OnInit {
   constructor(private orderServiceService: OrderServiceService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.orderServiceService.getAllOrders().subscribe(value => {
+    const thisUserID = sessionStorage.getItem('thisUserID');
+    console.log(thisUserID);
+    this.orderServiceService.getOrderByCustomerId(Number(thisUserID)).subscribe(value => {
       this.orders = value;
     });
   }

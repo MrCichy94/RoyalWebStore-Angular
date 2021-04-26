@@ -56,14 +56,9 @@ export class LoginComponent implements OnInit {
         this.router.navigate([this.returnUrl]);
       },
       error => {
-        //alert('Invalid Credentials');
         this.alertService.error(error);
         this.loading = false;
       });
   }
-  /*
-  .subscribe(data => this.router.navigate([this.returnUrl]),
-        err => alert('Invalid Credentials'));
-   */
   get f() { return this.loginForm.controls; }
 }

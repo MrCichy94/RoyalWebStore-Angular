@@ -12,8 +12,18 @@ export class OrderServiceService {
   constructor(private httpClient: HttpClient, private router: Router) {
   }
 
-  public getOrderById(id: number): Observable<Order> {
-    return this.httpClient.get<Order>('http://localhost:8080/customers/orders' + id);
+  public getOrderByCustomerId(id: number): Observable<Order[]> {
+    const headers = new HttpHeaders({
+      'Content-type': 'application/x-www-form-urlencoded; charset=utf-8',
+      'Authorization': 'Bearer ' + sessionStorage.getItem('access_token')
+    });
+    console.log(sessionStorage.getItem('access_token'));
+    if (sessionStorage.getItem('access_token') != null) {
+      console.log('Redirect for resource: ' + 'http://localhost:8080/customers/' + id + '/orders');
+      return this.httpClient.get<Order[]>('http://localhost:8080/customers/' + id + '/orders', {headers: headers});
+    } else {
+      this.router.navigate(['/login']);
+    }
   }
 
   public getAllOrders(): Observable<Order[]> {
