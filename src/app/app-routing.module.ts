@@ -7,10 +7,13 @@ import {CartsComponent} from './components/container/main-panel/content/carts/ca
 import {CartComponent} from './components/container/main-panel/content/carts/cart/cart.component';
 import {OrderComponent} from './components/container/main-panel/content/orders/order/order.component';
 import {LoginComponent} from './components/container/main-panel/content/login/login.component';
+import {AuthGuard} from './helpers/auth.guard';
+import {HomeComponent} from './components/home/home.component';
 
 const routes: Routes = [
-  {path: '', component: LoginComponent},
-  {path: 'products', component: ProductsComponent},
+  { path: '', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'login', component: LoginComponent },
+  {path: 'products', component: ProductsComponent },
   {path: 'products/:productId', component: ProductComponent},
   {path: 'customers/carts', component: CartsComponent},
   {path: 'customers/carts/details', component: CartComponent},

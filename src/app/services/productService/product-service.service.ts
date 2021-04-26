@@ -1,18 +1,28 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {Cookie} from 'ng2-cookies';
+import {Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductServiceService {
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
   }
 
   public getProductById(id: number): Observable<Product> {
-    return this.http.get<Product>('http://localhost:8080/products/' + id);
+    const headers = new HttpHeaders({
+      'Content-type': 'application/x-www-form-urlencoded; charset=utf-8',
+      'Authorization': 'Bearer ' + sessionStorage.getItem('access_token')
+    });
+    console.log(sessionStorage.getItem('access_token'));
+    if (sessionStorage.getItem('access_token') != null) {
+      console.log('Redirect for resource: ' + 'http://localhost:8080/products/' + id);
+      return this.http.get<Product>('http://localhost:8080/products/' + id, {headers: headers});
+    } else {
+      this.router.navigate(['/login']);
+    }
   }
 
   public getAllProducts(): Observable<Product[]> {
@@ -20,9 +30,13 @@ export class ProductServiceService {
       'Content-type': 'application/x-www-form-urlencoded; charset=utf-8',
       'Authorization': 'Bearer ' + sessionStorage.getItem('access_token')
     });
-    console.log('Redirect for resource: ' + 'http://localhost:8080/products');
-    console.log(Cookie.get('access_token'));
-    return this.http.get<Product[]>('http://localhost:8080/products', {headers: headers});
+    console.log(sessionStorage.getItem('access_token'));
+    if (sessionStorage.getItem('access_token') != null) {
+      console.log('Redirect for resource: ' + 'http://localhost:8080/products');
+      return this.http.get<Product[]>('http://localhost:8080/products', {headers: headers});
+    } else {
+      this.router.navigate(['/login']);
+    }
   }
 }
 

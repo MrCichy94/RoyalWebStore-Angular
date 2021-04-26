@@ -1,5 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthenticationService} from '../../../../services/authentication/authentication.service';
+import {AuthenticationService} from '../../../../../services/authentication/authentication.service';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {ActivatedRoute, Router} from '@angular/router';
+import {AlertService} from '../../../../../services/authentication/alert.service';
+import {first} from 'rxjs/operators';
 
 @Component({
   selector: 'app-login',
@@ -8,19 +12,58 @@ import {AuthenticationService} from '../../../../services/authentication/authent
 })
 export class LoginComponent implements OnInit {
 
-  authRequest = '{"password":"WisłaPany","username":"Skylake"}';
+  loginForm: FormGroup;
+  loading = false;
+  submitted = false;
+  returnUrl: string;
 
   response: any;
 
-  constructor(private authenticationService: AuthenticationService) {
+  constructor(private authenticationService: AuthenticationService,
+              private formBuilder: FormBuilder,
+              private route: ActivatedRoute,
+              private router: Router,
+              private alertService: AlertService
+  ) {
+    if (this.authenticationService.currentUserValue) {
+      this.router.navigate(['/']);
+    }
   }
 
   ngOnInit(): void {
-    this.getAccessToken(this.authRequest);
+    this.loginForm = this.formBuilder.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required]
+    });
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
-  public getAccessToken(authRequest) {
-    const resp = this.authenticationService.generateToken(authRequest);
+  onSubmit() {
+    this.submitted = true;
+    this.alertService.clear();
+    if (this.loginForm.invalid) {
+      return;
+    }
+    this.loading = true;
+    this.getAccessToken(this.f.username.value, this.f.password.value);
   }
 
+  public getAccessToken(username, password) {
+    this.authenticationService.generateToken(username, password)
+      .pipe(first())
+      .subscribe(
+      data => {
+        this.router.navigate([this.returnUrl]);
+      },
+      error => {
+        //alert('Invalid Credentials');
+        this.alertService.error(error);
+        this.loading = false;
+      });
+  }
+  /*
+  .subscribe(data => this.router.navigate([this.returnUrl]),
+        err => alert('Invalid Credentials'));
+   */
+  get f() { return this.loginForm.controls; }
 }

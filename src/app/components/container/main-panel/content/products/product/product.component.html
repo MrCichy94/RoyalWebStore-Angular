@@ -1,5 +1,5 @@
 <div class="content-box">
-  <div class="title">Read product: {{product.productName}}</div>
+  <div class="title" *ngIf="product">Read product: {{product.productName}}</div>
   <div class="products" *ngIf="product">
     <div class="item">
       <div class="productInfo">

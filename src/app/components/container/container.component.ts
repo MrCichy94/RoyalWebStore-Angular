@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {ScriptService} from '../services/scriptService/script.service';
+import {ScriptService} from '../../services/scriptService/script.service';
 
 @Component({
   selector: 'app-container',
