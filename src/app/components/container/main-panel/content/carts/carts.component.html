@@ -1,28 +1,25 @@
 <div class="content-box">
   <div class="title">Read all carts:</div>
-  <div class="carts" *ngIf="carts">
-    <li *ngFor="let cart of carts; index as i; first as isFirst">
+  <div class="carts" *ngIf="cart">
       <div class="item">
         <div class="cartInfo">
-          {{cart.cartId}} <br>
-          {{cart.customerId}} <br>
-          {{cart.grandTotal}} <br>
+          ID koszyka: {{cart.cartId}} <br>
+          ID klienta: {{cart.customerId}} <br>
+          Wartość koszyka: {{cart.grandTotal}} <br>
         </div>
         <div class="moreBtn">
-          <a routerLinkActive="active" [routerLink]="['/customers/carts/details']">szczegóły</a>
+          <a routerLinkActive="active" [routerLink]="['/customers/cart/details']">szczegóły</a>
         </div>
-        <span *ngIf="isFirst"></span>
       </div>
-    </li>
   </div>
-  <div class="carts" *ngIf="carts">
-    <li *ngFor="let cart of carts; index as i; first as isFirst">
+  <div class="carts" *ngIf="cart">
+
       <div class="item">
         {{cart.cartId}} <br>
         {{cart.customerId}} <br>
         {{cart.grandTotal}} <br>
-        <span *ngIf="isFirst"></span>
+
       </div>
-    </li>
+
   </div>
 </div>

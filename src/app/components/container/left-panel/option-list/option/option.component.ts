@@ -23,7 +23,7 @@ export class OptionComponent implements OnInit {
   };
 
   btnClickCarts = function() {
-    this.router.navigateByUrl('/customers/carts');
+    this.router.navigateByUrl('/customers/cart');
   };
 
 
