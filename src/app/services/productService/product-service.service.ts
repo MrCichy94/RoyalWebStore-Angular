@@ -77,3 +77,4 @@ export interface Product {
   vatPercentage: number;
   vatValue: number;
 }
+

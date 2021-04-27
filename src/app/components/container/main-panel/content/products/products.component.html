@@ -1,5 +1,19 @@
 <div class="content-box">
   <div class="title">Read all products:</div>
+  <div class="filter-box">
+    <mat-form-field appearance="fill">
+      <mat-label>Favorite car</mat-label>
+      <label>
+        <select matNativeControl [(ngModel)]="selectedCar" name="car">
+          <option value="" selected></option>
+          <option *ngFor="let car of cars" [value]="car.value">
+            {{car.viewValue}}
+          </option>
+        </select>
+      </label>
+    </mat-form-field>
+    <p> Wybrano filtr: {{selectedCar}} </p>
+  </div>
   <div class="products" *ngIf="products">
     <li *ngFor="let product of products; index as i; first as isFirst">
       <div class="item">
@@ -13,18 +27,6 @@
         <div class="moreBtn">
           <a routerLinkActive="active" [routerLink]="['/products', product.productId]">więcej...</a>
         </div>
-        <span *ngIf="isFirst"></span>
-      </div>
-    </li>
-  </div>
-  <div class="products" *ngIf="products">
-    <li *ngFor="let product of products; index as i; first as isFirst">
-      <div class="item">
-        {{product.productName}} <br>
-        {{product.type}} <br>
-        {{product.version}} <br>
-        {{product.productDescription}} <br>
-        {{product.sellBaseGrossPrice}} zł<br>
         <span *ngIf="isFirst"></span>
       </div>
     </li>

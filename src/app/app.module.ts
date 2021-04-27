@@ -29,6 +29,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {JwtInterceptor} from './helpers/jwt.interceptor';
 import {ErrorInterceptor} from './helpers/error.interceptor';
 import { HomeComponent } from './components/home/home.component';
+import {MatSelectModule} from '@angular/material/select';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -51,7 +53,7 @@ import { HomeComponent } from './components/home/home.component';
     CopyComponent,
     LoginComponent,
     AlertComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,7 +61,9 @@ import { HomeComponent } from './components/home/home.component';
     AppRoutingModule,
     MatIconModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSelectModule,
+    MatInputModule
   ],
   exports: [RouterModule],
   providers: [

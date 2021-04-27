@@ -10,17 +10,29 @@ import {AuthenticationService} from '../../../../../services/authentication/auth
 })
 export class ProductsComponent implements OnInit {
 
-  products: Product[];
-
   constructor(private authenticationService: AuthenticationService,
               private productServiceService: ProductServiceService,
               private route: ActivatedRoute) {
   }
+
+  products: Product[];
+
+  selectedCar: string;
+
+  cars: Car[] = [
+    {value: 'volvo', viewValue: 'Volvo'},
+    {value: 'saab', viewValue: 'Saab'},
+    {value: 'mercedes', viewValue: 'Mercedes'}
+  ];
 
   ngOnInit(): void {
     this.productServiceService.getAllProducts().subscribe(value => {
       this.products = value;
     });
   }
+}
 
+interface Car {
+  value: string;
+  viewValue: string;
 }
