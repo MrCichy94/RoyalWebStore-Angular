@@ -9,13 +9,15 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class CartComponent implements OnInit {
 
-  carts: Cart[];
+  cart: Cart;
 
   constructor(private cartServiceService: CartServiceService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.cartServiceService.getAllCarts().subscribe(value => {
-      this.carts = value;
+    const thisUserID = sessionStorage.getItem('thisUserID');
+    console.log(thisUserID);
+    this.cartServiceService.getCartByCustomerId(Number(thisUserID)).subscribe(value => {
+      this.cart = value;
     });
   }
 

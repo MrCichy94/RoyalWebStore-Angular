@@ -59,46 +59,16 @@ export interface Copy {
   alreadySold: boolean;
 }
 
-export interface Jedendwa {
+export interface CartItem {
   cartItemId: number;
   copy: Copy;
   totalPrice: number;
   quantity: number;
 }
 
-export interface Copy2 {
-  copyId: number;
-  productId: number;
-  quantity: number;
-  merchandisingCode: string;
-  buyNetPrice: number;
-  buyGrossPrice: number;
-  buyVatPercentage: number;
-  buyVatValue: number;
-  sellCurrentNetPrice: number;
-  sellCurrentGrossPrice: number;
-  discountValue: number;
-  percentageDiscountValue: number;
-  buyDate: string;
-  sellDate: string;
-  alreadySold: boolean;
-}
-
-export interface Dwadwa {
-  cartItemId: number;
-  copy: Copy2;
-  totalPrice: number;
-  quantity: number;
-}
-
-export interface CartItems {
-  1: Jedendwa;
-  2: Dwadwa;
-}
-
 export interface Cart {
   cartId: string;
-  cartItems: CartItems;
+  cartItems: Map<number, CartItem>;
   grandTotal: number;
   customerId: number;
 }

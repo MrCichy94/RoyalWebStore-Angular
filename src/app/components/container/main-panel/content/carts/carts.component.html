@@ -1,5 +1,5 @@
 <div class="content-box">
-  <div class="title">Read all carts:</div>
+  <div class="title">Your cart:</div>
   <div class="carts" *ngIf="cart">
       <div class="item">
         <div class="cartInfo">
@@ -13,13 +13,5 @@
       </div>
   </div>
   <div class="carts" *ngIf="cart">
-
-      <div class="item">
-        {{cart.cartId}} <br>
-        {{cart.customerId}} <br>
-        {{cart.grandTotal}} <br>
-
-      </div>
-
   </div>
 </div>
