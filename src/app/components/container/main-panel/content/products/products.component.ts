@@ -17,22 +17,26 @@ export class ProductsComponent implements OnInit {
 
   products: Product[];
 
-  selectedCar: string;
+  selectedCategory: string;
 
-  cars: Car[] = [
-    {value: 'volvo', viewValue: 'Volvo'},
-    {value: 'saab', viewValue: 'Saab'},
-    {value: 'mercedes', viewValue: 'Mercedes'}
+  categories: Category[] = [
+    {value: 'Obuwie', viewValue: 'Obuwie'},
+    {value: 'Akcesoria', viewValue: 'Akcesoria'},
+    {value: 'Ubrania', viewValue: 'Ubrania'}
   ];
 
   ngOnInit(): void {
+    this.displayProducts();
+  }
+
+  displayProducts() {
     this.productServiceService.getAllProducts().subscribe(value => {
       this.products = value;
     });
   }
 }
 
-interface Car {
+interface Category {
   value: string;
   viewValue: string;
 }

@@ -2,17 +2,18 @@
   <div class="title">Read all products:</div>
   <div class="filter-box">
     <mat-form-field appearance="fill">
-      <mat-label>Favorite car</mat-label>
+      <mat-label>Kategoria produktu</mat-label>
       <label>
-        <select matNativeControl [(ngModel)]="selectedCar" name="car">
+        <select matNativeControl [(ngModel)]="selectedCategory" name="car">
           <option value="" selected></option>
-          <option *ngFor="let car of cars" [value]="car.value">
-            {{car.viewValue}}
+          <option *ngFor="let category of categories" [value]="category.value">
+
+            {{category.viewValue}}
           </option>
         </select>
       </label>
     </mat-form-field>
-    <p> Wybrano filtr: {{selectedCar}} </p>
+    <p> Wybrano filtr: {{selectedCategory}} </p>
   </div>
   <div class="products" *ngIf="products">
     <li *ngFor="let product of products; index as i; first as isFirst">
