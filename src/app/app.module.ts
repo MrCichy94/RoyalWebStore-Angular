@@ -14,7 +14,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {RouterModule} from '@angular/router';
 import {AppRoutingModule} from './app-routing.module';
 import { ContentComponent } from './components/container/main-panel/content/content.component';
-import { ProductsComponent } from './components/container/main-panel/content/products/products.component';
+import {FilterPipe, ProductsComponent} from './components/container/main-panel/content/products/products.component';
 import {MatIconModule} from '@angular/material/icon';
 import { ProductComponent } from './components/container/main-panel/content/products/product/product.component';
 import { CartsComponent } from './components/container/main-panel/content/carts/carts.component';
@@ -31,6 +31,7 @@ import {ErrorInterceptor} from './helpers/error.interceptor';
 import { HomeComponent } from './components/home/home.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -54,9 +55,11 @@ import {MatInputModule} from '@angular/material/input';
     LoginComponent,
     AlertComponent,
     HomeComponent,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
     MatIconModule,
@@ -76,5 +79,3 @@ import {MatInputModule} from '@angular/material/input';
 export class AppModule {
 
 }
-
-

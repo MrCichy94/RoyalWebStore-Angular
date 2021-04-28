@@ -60,8 +60,18 @@ export interface Copy {
 
 export interface CategoryAndManufacturer {
   categoriesManufacturerId: number;
-  category: string;
-  manufacturer: string;
+  category: Category;
+  manufacturer: Manufacturer;
+}
+
+export interface Category {
+  categoryId: number;
+  categoryName: string;
+}
+
+export interface Manufacturer {
+  manufacturerId: number;
+  manufacturerName: string;
 }
 
 export interface Product {

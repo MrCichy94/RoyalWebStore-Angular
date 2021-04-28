@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Pipe, PipeTransform} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Product, ProductServiceService} from '../../../../../services/productService/product-service.service';
 import {AuthenticationService} from '../../../../../services/authentication/authentication.service';
@@ -17,7 +17,7 @@ export class ProductsComponent implements OnInit {
 
   products: Product[];
 
-  selectedCategory: string;
+  selectedCategory = 'Wszystko';
 
   categories: Category[] = [
     {value: 'Obuwie', viewValue: 'Obuwie'},
@@ -39,4 +39,24 @@ export class ProductsComponent implements OnInit {
 interface Category {
   value: string;
   viewValue: string;
+}
+
+@Pipe({
+  name: 'productFilter',
+  pure: false
+})
+export class FilterPipe implements PipeTransform {
+
+  transform(value: Product[], filterString: string, propName: string): any {
+    if (filterString === 'Wszystko') {
+      return value;
+    }
+    const resultArray = [];
+    for (const item of value) {
+      if (item.categoryAndManufacturer.category.categoryName === filterString) {
+        resultArray.push(item);
+      }
+    }
+    return resultArray;
+  }
 }

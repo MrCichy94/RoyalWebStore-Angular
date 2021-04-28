@@ -5,9 +5,8 @@
       <mat-label>Kategoria produktu</mat-label>
       <label>
         <select matNativeControl [(ngModel)]="selectedCategory" name="car">
-          <option value="" selected></option>
+          <option value="Wszystko" selected></option>
           <option *ngFor="let category of categories" [value]="category.value">
-
             {{category.viewValue}}
           </option>
         </select>
@@ -16,12 +15,13 @@
     <p> Wybrano filtr: {{selectedCategory}} </p>
   </div>
   <div class="products" *ngIf="products">
-    <li *ngFor="let product of products; index as i; first as isFirst">
+    <li *ngFor="let product of products | productFilter:selectedCategory:'category'; index as i; first as isFirst">
       <div class="item">
         <div class="productInfo">
           {{product.productName}} <br>
           {{product.type}} <br>
           {{product.version}} <br>
+          {{product.categoryAndManufacturer.category.categoryName}} <br>
           {{product.productDescription}} <br>
           {{product.sellBaseGrossPrice}} zł<br>
         </div>
