@@ -3,13 +3,14 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Router} from '@angular/router';
 import {Order} from '../orderService/order-service.service';
+import {AlertService} from '../authentication/alert.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartServiceService {
 
-  constructor(private httpClient: HttpClient, private router: Router) {
+  constructor(private httpClient: HttpClient, private router: Router, private alertService: AlertService) {
   }
 
   public getCartByCustomerId(id: number): Observable<Cart> {
@@ -22,6 +23,7 @@ export class CartServiceService {
       console.log('Redirect for resource: ' + 'http://localhost:8080/customers/' + id + '/cart');
       return this.httpClient.get<Cart>('http://localhost:8080/customers/' + id + '/cart', {headers: headers});
     } else {
+      this.alertService.logginErrorAlert();
       this.router.navigate(['/login']);
     }
   }

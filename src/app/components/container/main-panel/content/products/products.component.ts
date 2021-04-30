@@ -2,6 +2,7 @@ import {Component, OnInit, Pipe, PipeTransform} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Product, ProductServiceService} from '../../../../../services/productService/product-service.service';
 import {AuthenticationService} from '../../../../../services/authentication/authentication.service';
+import {AlertService} from '../../../../../services/authentication/alert.service';
 
 @Component({
   selector: 'app-products',

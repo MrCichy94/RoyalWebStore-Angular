@@ -2,13 +2,15 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Router} from '@angular/router';
+import Swal from 'sweetalert2';
+import {AlertService} from '../authentication/alert.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductServiceService {
 
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(private http: HttpClient, private router: Router, private alertService: AlertService) {
   }
 
   public getProductById(id: number): Observable<Product> {
@@ -35,6 +37,7 @@ export class ProductServiceService {
       console.log('Redirect for resource: ' + 'http://localhost:8080/products');
       return this.http.get<Product[]>('http://localhost:8080/products', {headers: headers});
     } else {
+      this.alertService.logginErrorAlert();
       this.router.navigate(['/login']);
     }
   }

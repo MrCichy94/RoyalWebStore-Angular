@@ -1,6 +1,7 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Observable, Subject} from 'rxjs';
 import {NavigationStart, Router} from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root'
@@ -31,12 +32,16 @@ export class AlertService {
 
   success(message: string, keepAfterRouteChange = false) {
     this.keepAfterRouteChange = keepAfterRouteChange;
-    this.subject.next({ type: 'success', text: 'Zalogowano pomyślnie!' });
+    this.subject.next({type: 'success', text: 'Zalogowano pomyślnie!'});
   }
 
   error(message: string, keepAfterRouteChange = false) {
     this.keepAfterRouteChange = keepAfterRouteChange;
-    this.subject.next({ type: 'error', text: 'Username or password is incorrect!' });
+    this.subject.next({type: 'error', text: 'Username or password is incorrect!'});
+  }
+
+  logginErrorAlert() {
+    Swal.fire('Access denied', 'You must log in first!', 'error');
   }
 
   clear() {

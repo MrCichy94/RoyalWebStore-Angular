@@ -3,13 +3,14 @@ import {Copy} from '../productService/product-service.service';
 import {Observable} from 'rxjs';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Router} from '@angular/router';
+import {AlertService} from '../authentication/alert.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OrderServiceService {
 
-  constructor(private httpClient: HttpClient, private router: Router) {
+  constructor(private httpClient: HttpClient, private router: Router, private alertService: AlertService) {
   }
 
   public getOrderByCustomerId(id: number): Observable<Order[]> {
@@ -22,6 +23,7 @@ export class OrderServiceService {
       console.log('Redirect for resource: ' + 'http://localhost:8080/customers/' + id + '/orders');
       return this.httpClient.get<Order[]>('http://localhost:8080/customers/' + id + '/orders', {headers: headers});
     } else {
+      this.alertService.logginErrorAlert();
       this.router.navigate(['/login']);
     }
   }
