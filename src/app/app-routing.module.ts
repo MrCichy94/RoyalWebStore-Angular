@@ -9,10 +9,12 @@ import {OrderComponent} from './components/container/main-panel/content/orders/o
 import {LoginComponent} from './components/container/main-panel/content/login/login.component';
 import {AuthGuard} from './helpers/auth.guard';
 import {HomeComponent} from './components/home/home.component';
+import {RegisterComponent} from './components/container/main-panel/content/register/register.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   {path: 'products', component: ProductsComponent },
   {path: 'products/:productId', component: ProductComponent},
   {path: 'customers/cart', component: CartsComponent},

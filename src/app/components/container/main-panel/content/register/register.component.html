@@ -1,0 +1,67 @@
+<div class="content-box">
+  <div class="header-name"><h2>Register</h2></div>
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="left-part">
+      <div class="form-group">
+        <label for="emailLogin">Email</label>
+        <input type="text" formControlName="emailLogin" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.emailLogin.errors }" />
+        <div *ngIf="submitted && f.emailLogin.errors" class="invalid-feedback">
+          <div *ngIf="f.emailLogin.errors.required">Username is required</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+          <div *ngIf="f.password.errors.required">Password is required</div>
+          <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+        <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+          <div *ngIf="f.firstName.errors.required">First Name is required</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+        <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+          <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+        </div>
+      </div>
+    </div>
+    <div class="right-part">
+      <div class="form-group">
+        <label for="typeOfClient">Client Type</label>
+        <input type="text" formControlName="typeOfClient" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.typeOfClient.errors }" />
+        <div *ngIf="submitted && f.typeOfClient.errors" class="invalid-feedback">
+          <div *ngIf="f.typeOfClient.errors.required">tip: select buisnes or private</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="phoneNumber1">Phone Number</label>
+        <input type="text" formControlName="phoneNumber1" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.phoneNumber1.errors }" />
+        <div *ngIf="submitted && f.phoneNumber1.errors" class="invalid-feedback">
+          <div *ngIf="f.phoneNumber1.errors.required">Phone number is required!</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="emailAddress">Contact email</label>
+        <input type="text" formControlName="emailAddress" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.emailAddress.errors }" />
+        <div *ngIf="submitted && f.emailAddress.errors" class="invalid-feedback">
+          <div *ngIf="f.emailAddress.errors.required">Email address is required!</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <button [disabled]="loading" class="btn btn-primary">
+          <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+          Register
+        </button>
+        <a routerLink="/login" class="btn btn-link">Cancel</a>
+      </div>
+    </div>
+  </form>
+</div>
+
