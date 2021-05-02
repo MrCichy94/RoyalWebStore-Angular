@@ -3,9 +3,9 @@ interface Scripts {
   src: string;
 }
 export const ScriptStore: Scripts[] = [
+  {name: 'fullPage', src: 'http://yourjavascript.com/832734112/fullpage-min.js'},
   {name: 'TimelineMax', src: 'https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TimelineMax.min.js'},
   {name: 'TweenMax', src: 'https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js'},
-  {name: 'fullPage', src: 'http://yourjavascript.com/832734112/fullpage-min.js'},
   {name: 'app', src: 'http://yourjavascript.com/123643151/app.js'}
 ];
 

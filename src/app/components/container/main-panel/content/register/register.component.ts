@@ -33,13 +33,13 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      emailLogin: ['', Validators.required],
-      password: ['', [Validators.required, Validators.minLength(6)]],
-      typeOfClient: ['', Validators.required],
-      phoneNumber1: ['', Validators.required],
-      emailAddress: ['', Validators.required]
+      firstName: ['', [Validators.required, Validators.pattern('[a-zA-Z]{2,25}')]],
+      lastName: ['', [Validators.required, Validators.pattern('[a-zA-Z]{2,25}')]],
+      emailLogin: ['', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}$')]],
+      password: ['', [Validators.required, Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')]],
+      typeOfClient: ['', [Validators.required, Validators.pattern('(private)')]],
+      phoneNumber1: ['', [Validators.required, Validators.pattern('[0-9]{9}')]],
+      emailAddress: ['', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}$')]]
     });
   }
 
