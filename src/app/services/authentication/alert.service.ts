@@ -12,14 +12,12 @@ export class AlertService {
   private keepAfterRouteChange = false;
 
   constructor(private router: Router) {
-    // clear alert messages on route change unless 'keepAfterRouteChange' flag is true
     this.router.events.subscribe(event => {
       if (event instanceof NavigationStart) {
         if (this.keepAfterRouteChange) {
           // only keep for a single route change
           this.keepAfterRouteChange = false;
         } else {
-          // clear alert message
           this.clear();
         }
       }
@@ -35,9 +33,14 @@ export class AlertService {
     this.subject.next({type: 'success', text: 'Zalogowano pomyślnie!'});
   }
 
-  error(message: string, keepAfterRouteChange = false) {
+  loginError(message: string, keepAfterRouteChange = false) {
     this.keepAfterRouteChange = keepAfterRouteChange;
     this.subject.next({type: 'error', text: 'Username or password is incorrect!'});
+  }
+
+  registerError(message: string, keepAfterRouteChange = false) {
+    this.keepAfterRouteChange = keepAfterRouteChange;
+    this.subject.next({type: 'error', text: 'Account with this email already exists!'});
   }
 
   logginErrorAlert() {
@@ -45,7 +48,6 @@ export class AlertService {
   }
 
   clear() {
-    // clear by calling subject.next() without parameters
     this.subject.next();
   }
 }

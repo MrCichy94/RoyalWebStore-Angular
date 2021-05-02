@@ -52,13 +52,16 @@ export class LoginComponent implements OnInit {
     this.authenticationService.generateToken(username, password)
       .pipe(first())
       .subscribe(
-      data => {
-        this.router.navigate([this.returnUrl]);
-      },
-      error => {
-        this.alertService.error(error);
-        this.loading = false;
-      });
+        data => {
+          this.router.navigate([this.returnUrl]);
+        },
+        error => {
+          this.alertService.loginError(error);
+          this.loading = false;
+        });
   }
-  get f() { return this.loginForm.controls; }
+
+  get f() {
+    return this.loginForm.controls;
+  }
 }
