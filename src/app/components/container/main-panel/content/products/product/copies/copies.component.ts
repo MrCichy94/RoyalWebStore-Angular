@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Copy, ProductServiceService} from '../../../../../../../services/productService/product-service.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-copies',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CopiesComponent implements OnInit {
 
-  constructor() { }
+  copies: Copy[];
+
+  constructor(private productServiceService: ProductServiceService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.getCopiesOfProductById();
+  }
+
+  getCopiesOfProductById(): void {
+    const id = +this.route.snapshot.paramMap.get('productId');
+    this.productServiceService.getCopiesOfProductWithGivenId(id)
+      .subscribe(copis => this.copies = copis);
   }
 
 }

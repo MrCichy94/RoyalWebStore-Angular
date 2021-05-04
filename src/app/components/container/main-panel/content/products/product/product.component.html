@@ -13,6 +13,9 @@
       <div class="backBtn" onclick="history.go(-1)">
         <a>Powrót</a>
       </div>
+      <div class="backBtn">
+        <a routerLinkActive="active" [routerLink]="['/products/' + product.productId + '/copies']">Egzemplarze</a>
+      </div>
     </div>
   </div>
 </div>

@@ -20,13 +20,14 @@
   width: 100%;
   height: 10%;
 
-  background-color: darkred;
+  color: antiquewhite;
+  background-color: #31353F;
   border-radius: 2px;
-  border: 1px solid #7a0000;
+  border: 1px solid black;
 }
 
 .btn:hover{
-  opacity: 0.8;
+  background-color: #23262C;
   font-weight: bold;
   cursor: pointer;
 }

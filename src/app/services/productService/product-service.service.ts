@@ -12,20 +12,6 @@ export class ProductServiceService {
   constructor(private http: HttpClient, private router: Router, private alertService: AlertService) {
   }
 
-  public getProductById(id: number): Observable<Product> {
-    const headers = new HttpHeaders({
-      'Content-type': 'application/x-www-form-urlencoded; charset=utf-8',
-      'Authorization': 'Bearer ' + sessionStorage.getItem('access_token')
-    });
-    console.log(sessionStorage.getItem('access_token'));
-    if (sessionStorage.getItem('access_token') != null) {
-      console.log('Redirect for resource: ' + 'http://localhost:8080/products/' + id);
-      return this.http.get<Product>('http://localhost:8080/products/' + id, {headers: headers});
-    } else {
-      this.router.navigate(['/login']);
-    }
-  }
-
   public getAllProducts(): Observable<Product[]> {
     const headers = new HttpHeaders({
       'Content-type': 'application/x-www-form-urlencoded; charset=utf-8',
@@ -40,6 +26,36 @@ export class ProductServiceService {
       this.router.navigate(['/login']);
     }
   }
+
+  public getProductById(id: number): Observable<Product> {
+    const headers = new HttpHeaders({
+      'Content-type': 'application/x-www-form-urlencoded; charset=utf-8',
+      'Authorization': 'Bearer ' + sessionStorage.getItem('access_token')
+    });
+    console.log(sessionStorage.getItem('access_token'));
+    if (sessionStorage.getItem('access_token') != null) {
+      console.log('Redirect for resource: ' + 'http://localhost:8080/products/' + id);
+      return this.http.get<Product>('http://localhost:8080/products/' + id, {headers: headers});
+    } else {
+      this.router.navigate(['/login']);
+    }
+  }
+
+  public getCopiesOfProductWithGivenId(id: number): Observable<Copy[]> {
+    const headers = new HttpHeaders({
+      'Content-type': 'application/x-www-form-urlencoded; charset=utf-8',
+      'Authorization': 'Bearer ' + sessionStorage.getItem('access_token')
+    });
+    console.log(sessionStorage.getItem('access_token'));
+    if (sessionStorage.getItem('access_token') != null) {
+      console.log('Redirect for resource: ' + 'http://localhost:8080/products/' + id + '/copies');
+      return this.http.get<Copy[]>('http://localhost:8080/products/' + id + '/copies', {headers: headers});
+    } else {
+      this.router.navigate(['/login']);
+    }
+  }
+
+
 }
 
 export interface Copy {

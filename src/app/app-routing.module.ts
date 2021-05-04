@@ -10,6 +10,7 @@ import {LoginComponent} from './components/container/main-panel/content/login/lo
 import {AuthGuard} from './helpers/auth.guard';
 import {HomeComponent} from './components/home/home.component';
 import {RegisterComponent} from './components/container/main-panel/content/register/register.component';
+import {CopiesComponent} from './components/container/main-panel/content/products/product/copies/copies.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuard] },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   {path: 'products', component: ProductsComponent },
   {path: 'products/:productId', component: ProductComponent},
+  {path: 'products/:productId/copies', component: CopiesComponent},
   {path: 'customers/cart', component: CartsComponent},
   {path: 'customers/cart/details', component: CartComponent},
   {path: 'customers/orders', component: OrdersComponent},
