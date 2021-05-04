@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Router} from '@angular/router';
 import {AlertService} from '../authentication/alert.service';
+import {defaultIfEmpty} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -37,6 +38,21 @@ export class CartServiceService {
       console.log('Redirect for resource: ' + 'http://localhost:8080/customers/carts');
       return this.httpClient.get<Cart[]>('http://localhost:8080/customers/carts', {headers: headers});
     } else {
+      this.router.navigate(['/login']);
+    }
+  }
+
+  public addCopyWithGivenIdOfProductWithGivenIdToCustomerCart(productId: number, copyId: number) {
+    const headers = new HttpHeaders({
+      'Authorization': 'Bearer ' + sessionStorage.getItem('access_token')
+    });
+    console.log(sessionStorage.getItem('access_token'));
+    if (sessionStorage.getItem('access_token') != null) {
+      console.log('Redirect for resource: ' + 'http://localhost:8080/products/' + productId + '/copies/' + copyId);
+      this.alertService.copyAddedToCartSuccess();
+      return this.httpClient.post('http://localhost:8080/products/' + productId + '/copies/' + copyId, null, {headers: headers});
+    } else {
+      this.alertService.addCopyToCartFailure();
       this.router.navigate(['/login']);
     }
   }

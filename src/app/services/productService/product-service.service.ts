@@ -54,8 +54,6 @@ export class ProductServiceService {
       this.router.navigate(['/login']);
     }
   }
-
-
 }
 
 export interface Copy {

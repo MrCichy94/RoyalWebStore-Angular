@@ -47,6 +47,14 @@ export class AlertService {
     Swal.fire('Access denied', 'You must log in first!', 'error');
   }
 
+  copyAddedToCartSuccess() {
+    Swal.fire('Success!', 'Item added to your cart!', 'success');
+  }
+
+  addCopyToCartFailure() {
+    Swal.fire('Error!', 'Try again!', 'error');
+  }
+
   clear() {
     this.subject.next();
   }

@@ -18,4 +18,19 @@
       </div>
     </div>
   </div>
+  <div class="products" *ngIf="product">
+    <li *ngFor="let copy of product.copies; index as i; first as isFirst">
+        <div class="productInfo">
+          {{copy.merchandisingCode}} <br>
+          {{copy.quantity}} <br>
+          {{copy.copyId}} <br>
+          {{copy.sellCurrentGrossPrice}} zł<br>
+          {{copy.sellCurrentNetPrice}} zł<br>
+        </div>
+        <div class="moreBtn">
+          <a role="button" (click)="addToCart(product.productId, copy.copyId)">Dodaj do koszyka</a>
+        </div>
+        <span *ngIf="isFirst"></span>
+    </li>
+  </div>
 </div>
