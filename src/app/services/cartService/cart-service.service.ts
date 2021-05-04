@@ -56,6 +56,21 @@ export class CartServiceService {
       this.router.navigate(['/login']);
     }
   }
+
+  public removeCopyWithGivenIdOfProductWithGivenIdFromCustomerCart(productId: number, copyId: number) {
+    const headers = new HttpHeaders({
+      'Authorization': 'Bearer ' + sessionStorage.getItem('access_token')
+    });
+    console.log(sessionStorage.getItem('access_token'));
+    if (sessionStorage.getItem('access_token') != null) {
+      console.log('Redirect for resource: ' + 'http://localhost:8080/products/' + productId + '/copies/' + copyId);
+      this.alertService.copyRemovedToCartSuccess();
+      return this.httpClient.patch('http://localhost:8080/products/' + productId + '/copies/' + copyId, null, {headers: headers});
+    } else {
+      this.alertService.addCopyToCartFailure();
+      this.router.navigate(['/login']);
+    }
+  }
 }
 
 export interface Copy {

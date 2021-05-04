@@ -12,6 +12,9 @@
         <div class="backBtn" onclick="history.go(-1)">
           <a>Powrót</a>
         </div>
+        <div class="moreBtn">
+          <a role="button" (click)="removeFromCart(item.value.copy.productId, item.value.copy.copyId)">Usuń 1 szt.</a>
+        </div>
         <span *ngIf="isFirst"></span>
       </div>
     </li>

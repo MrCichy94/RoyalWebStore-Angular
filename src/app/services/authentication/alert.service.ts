@@ -51,6 +51,10 @@ export class AlertService {
     Swal.fire('Success!', 'Item added to your cart!', 'success');
   }
 
+  copyRemovedToCartSuccess() {
+    Swal.fire('Success!', 'Item removed from your cart!', 'success');
+  }
+
   addCopyToCartFailure() {
     Swal.fire('Error!', 'Try again!', 'error');
   }

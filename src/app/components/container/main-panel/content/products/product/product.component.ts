@@ -31,5 +31,4 @@ export class ProductComponent implements OnInit {
     this.cartServiceService.addCopyWithGivenIdOfProductWithGivenIdToCustomerCart(productId, copyId)
       .subscribe();
   }
-
 }

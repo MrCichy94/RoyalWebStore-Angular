@@ -21,4 +21,9 @@ export class CartComponent implements OnInit {
     });
   }
 
+  removeFromCart(productId: number, copyId: number): void {
+    this.cartServiceService.removeCopyWithGivenIdOfProductWithGivenIdFromCustomerCart(productId, copyId)
+      .subscribe();
+  }
+
 }
