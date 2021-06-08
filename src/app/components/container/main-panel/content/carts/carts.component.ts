@@ -22,4 +22,8 @@ export class CartsComponent implements OnInit {
     });
   }
 
+  sendOrder(cartId: string): void {
+    this.cartServiceService.proccessCartWithGivenIdToOrder(cartId)
+      .subscribe();
+  }
 }

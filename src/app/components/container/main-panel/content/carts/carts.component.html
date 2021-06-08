@@ -10,6 +10,9 @@
         <div class="moreBtn">
           <a routerLinkActive="active" [routerLink]="['/customers/cart/details']">szczegóły</a>
         </div>
+        <div class="moreBtn">
+          <a role="button" (click)="sendOrder(cart.cartId)">zamów</a>
+        </div>
       </div>
   </div>
   <div class="carts" *ngIf="cart">
