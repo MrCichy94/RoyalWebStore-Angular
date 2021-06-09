@@ -79,10 +79,10 @@ export class CartServiceService {
     console.log(sessionStorage.getItem('access_token'));
     if (sessionStorage.getItem('access_token') != null) {
       console.log('Redirect for resource: ' + 'http://localhost:8080/customers/cart/' + cartId);
-      this.alertService.copyRemovedToCartSuccess();
+      this.alertService.proccessCartToOrderSuccess();
       return this.httpClient.post('http://localhost:8080/customers/cart/' + cartId, null, {headers: headers});
     } else {
-      this.alertService.addCopyToCartFailure();
+      this.alertService.proccessCartToOrderFailure();
       this.router.navigate(['/login']);
     }
   }

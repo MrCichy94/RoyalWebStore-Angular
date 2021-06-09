@@ -59,6 +59,14 @@ export class AlertService {
     Swal.fire('Error!', 'Try again!', 'error');
   }
 
+  proccessCartToOrderSuccess() {
+    Swal.fire('Success!', 'Your order was created!', 'success');
+  }
+
+  proccessCartToOrderFailure() {
+    Swal.fire('Error!', 'Try again!', 'error');
+  }
+
   clear() {
     this.subject.next();
   }
