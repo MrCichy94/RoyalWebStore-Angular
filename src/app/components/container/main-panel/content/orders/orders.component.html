@@ -11,7 +11,7 @@
           {{order.copies}} <br>
         </div>
         <div class="moreBtn">
-          <a routerLinkActive="active" [routerLink]="['/customers/orders/details']">szczegóły</a>
+          <a routerLinkActive="active" [routerLink]="['/customers/orders/details']" (click)="getOrderId(order.orderId)">szczegóły</a>
         </div>
         <span *ngIf="isFirst"></span>
       </div>

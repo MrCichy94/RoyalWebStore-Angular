@@ -22,4 +22,7 @@ export class OrdersComponent implements OnInit {
     });
   }
 
+  getOrderId(orderId: number) {
+    sessionStorage.setItem('order_id', String(orderId));
+  }
 }
