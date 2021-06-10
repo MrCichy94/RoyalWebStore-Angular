@@ -54,6 +54,20 @@ export class ProductServiceService {
       this.router.navigate(['/login']);
     }
   }
+
+  public createNewProduct(requestData: string) {
+    const headers = new HttpHeaders({
+      'Content-type': 'application/json',
+      'Authorization': 'Bearer ' + sessionStorage.getItem('access_token')
+    });
+    console.log(sessionStorage.getItem('access_token'));
+    if (sessionStorage.getItem('access_token') != null) {
+      console.log('Redirect for resource: ' + 'http://localhost:8080/products/newproduct/add');
+      return this.http.post('http://localhost:8080/products/newproduct/add', requestData, {headers: headers});
+    } else {
+      this.router.navigate(['/login']);
+    }
+  }
 }
 
 export interface Copy {

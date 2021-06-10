@@ -1,1 +1,43 @@
+<div class="content-box">
+  <div class="header-name">
+    <h2>Add new product: </h2><br>
+  </div>
+  <app-alert></app-alert>
+  <form [formGroup]="addItemForm" (ngSubmit)="onSubmit()">
+    <div class="left-part">
+      <div class="form-group">
+        <label for="productName">Product Name</label>
+        <input type="text" formControlName="productName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.productName.errors }" />
+        <div *ngIf="submitted && f.productName.errors" class="invalid-feedback">
+          <div *ngIf="f.productName.errors.required">Product name is required!</div>
+          <div *ngIf="f.productName.errors.pattern">Product name format is incorrect!</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="sellBaseGrossPrice">Sell Base Gross Price</label>
+        <input type="text" formControlName="sellBaseGrossPrice" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.sellBaseGrossPrice.errors }" />
+        <div *ngIf="submitted && f.sellBaseGrossPrice.errors" class="invalid-feedback">
+          <div *ngIf="f.sellBaseGrossPrice.errors.required">Sell Base Gross Price is required!</div>
+          <div *ngIf="f.sellBaseGrossPrice.errors.pattern">Allowed 'Sell Base Gross Price' format is similar to "xy.pq" !</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="vatPercentage">VAT Percentage</label>
+        <input type="text" formControlName="vatPercentage" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.vatPercentage.errors }" />
+        <div *ngIf="submitted && f.vatPercentage.errors" class="invalid-feedback">
+          <div *ngIf="f.vatPercentage.errors.required">VAT Percentage is required!</div>
+          <div *ngIf="f.vatPercentage.errors.pattern">Allowed 'VAT Percentage' format is similar to "0.xy" ! </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <button [disabled]="loading" class="btn btn-primary">
+          <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+          Submit
+        </button>
+        <a routerLink="/add" class="btn btn-link">Cancel</a>
+      </div>
+    </div>
+  </form>
+</div>
+
 
