@@ -11,6 +11,7 @@ import {AuthGuard} from './helpers/auth.guard';
 import {HomeComponent} from './components/home/home.component';
 import {RegisterComponent} from './components/container/main-panel/content/register/register.component';
 import {CopiesComponent} from './components/container/main-panel/content/products/product/copies/copies.component';
+import {AddComponent} from './components/container/main-panel/content/add/add.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuard] },
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path: 'customers/cart/details', component: CartComponent},
   {path: 'customers/orders', component: OrdersComponent},
   {path: 'customers/orders/details', component: OrderComponent},
+  {path: 'add', component: AddComponent},
 ];
 
 @NgModule({

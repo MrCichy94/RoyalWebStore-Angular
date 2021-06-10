@@ -33,6 +33,8 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { RegisterComponent } from './components/container/main-panel/content/register/register.component';
+import {AddComponent} from './components/container/main-panel/content/add/add.component';
+
 
 @NgModule({
   declarations: [
@@ -58,6 +60,7 @@ import { RegisterComponent } from './components/container/main-panel/content/reg
     HomeComponent,
     FilterPipe,
     RegisterComponent,
+    AddComponent,
   ],
   imports: [
     BrowserModule,

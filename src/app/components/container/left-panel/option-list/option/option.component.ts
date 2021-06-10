@@ -26,5 +26,9 @@ export class OptionComponent implements OnInit {
     this.router.navigateByUrl('/customers/cart');
   };
 
+  btnClickAdd = function() {
+    this.router.navigateByUrl('/add');
+  };
+
 
 }
