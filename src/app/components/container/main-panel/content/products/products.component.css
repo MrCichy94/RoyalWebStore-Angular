@@ -43,6 +43,10 @@ li{
   width: 100%;
 }
 
+.productInfoBox {
+
+}
+
 .productInfo{
   position: relative;
   display: flex;
