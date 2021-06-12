@@ -34,7 +34,8 @@ import {MatInputModule} from '@angular/material/input';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { RegisterComponent } from './components/container/main-panel/content/register/register.component';
 import {AddComponent} from './components/container/main-panel/content/add/add.component';
-
+import {MatPaginator} from '@angular/material/paginator';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,7 @@ import {AddComponent} from './components/container/main-panel/content/add/add.co
     HomeComponent,
     FilterPipe,
     RegisterComponent,
-    AddComponent,
+    AddComponent
   ],
   imports: [
     BrowserModule,
@@ -71,7 +72,8 @@ import {AddComponent} from './components/container/main-panel/content/add/add.co
     FormsModule,
     ReactiveFormsModule,
     MatSelectModule,
-    MatInputModule
+    MatInputModule,
+    NgxPaginationModule
   ],
   exports: [RouterModule],
   providers: [

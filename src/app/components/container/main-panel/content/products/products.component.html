@@ -15,7 +15,11 @@
     <p> Wybrano filtr: {{selectedCategory}} </p>
   </div>
   <div class="products" *ngIf="products">
-    <li *ngFor="let product of products | productFilter:selectedCategory:'category'; index as i; first as isFirst">
+    <!-- change to request param "?name=" for backend <li *ngFor="let product of products | productFilter:selectedCategory:'category'; index as i; first as isFirst"> -->
+    <li *ngFor="let product of products | paginate: { id: 'listing_pagination',
+                                                      itemsPerPage: 1,
+                                                      currentPage: page,
+                                                      totalItems: totalRecords }">
       <div class="item">
         <div class="productInfo">
           {{product.productName}} <br>
@@ -31,5 +35,8 @@
         <span *ngIf="isFirst"></span>
       </div>
     </li>
+  </div>
+  <div class="paginatorControls">
+    <pagination-controls id="listing_pagination" maxSize="5" directionLinks="true" (pageChange)="page = $event"></pagination-controls>
   </div>
 </div>

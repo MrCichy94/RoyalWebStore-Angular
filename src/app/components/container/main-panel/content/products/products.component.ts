@@ -1,8 +1,11 @@
-import {Component, OnInit, Pipe, PipeTransform} from '@angular/core';
+import {AfterViewInit, Component, OnInit, Pipe, PipeTransform, ViewChild} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Product, ProductServiceService} from '../../../../../services/productService/product-service.service';
 import {AuthenticationService} from '../../../../../services/authentication/authentication.service';
 import {AlertService} from '../../../../../services/authentication/alert.service';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatSort} from '@angular/material/sort';
+import {MatTableDataSource} from '@angular/material/table';
 
 @Component({
   selector: 'app-products',
@@ -17,6 +20,8 @@ export class ProductsComponent implements OnInit {
   }
 
   products: Product[];
+  totalRecords: number;
+  page = 1;
 
   selectedCategory = 'Wszystko';
 
@@ -31,8 +36,10 @@ export class ProductsComponent implements OnInit {
   }
 
   displayProducts() {
-    this.productServiceService.getAllProducts().subscribe(value => {
+    this.productServiceService.getAllProducts().subscribe((value) => {
       this.products = value;
+      this.totalRecords = value.length;
+      console.log(value.length);
     });
   }
 }

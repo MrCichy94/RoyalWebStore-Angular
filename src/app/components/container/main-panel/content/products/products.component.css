@@ -56,6 +56,15 @@ li{
   width: 100%;
 }
 
+.paginatorControls {
+  display: flex;
+  justify-content: center;
+}
+
+:host /deep/ .ngx-pagination {
+  padding-left: 0px !important;
+}
+
 .title{
   position: relative;
   display: flex;
