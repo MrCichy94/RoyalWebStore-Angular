@@ -1,0 +1,39 @@
+<div class="content-box">
+  <div class="title">Read all products:</div>
+  <div class="products" *ngIf="products">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <td>Name</td>
+        <td>Manufacturer</td>
+        <td>Category</td>
+        <td>Cost</td>
+        <td>VAT</td>
+        <td>Action</td>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let product of products | paginate: { id: 'listing_pagination',
+                                                      itemsPerPage: 4,
+                                                      currentPage: page,
+                                                      totalItems: totalRecords }">
+        <td>{{product.productName}}</td>
+        <td>{{product.productManufacturer}}</td>
+        <td>{{product.productCategory}}</td>
+        <td>{{product.sellBaseGrossPrice}}</td>
+        <td>{{product.vatPercentage}}</td>
+        <td>
+          <div class="moreBtn">
+            <a routerLinkActive="active" [routerLink]="['/products', product.productId]">więcej...</a>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+    <!-- change to request param "?name=" for backend <li *ngFor="let product of products | productFilter:selectedCategory:'category'; index as i; first as isFirst"> -->
+  </div>
+  <div class="paginatorControls">
+    <pagination-controls id="listing_pagination" maxSize="5" directionLinks="true" (pageChange)="page = $event"></pagination-controls>
+  </div>
+</div>
