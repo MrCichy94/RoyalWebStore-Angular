@@ -86,29 +86,15 @@ export interface Copy {
   buyDate: string;
   sellDate: string;
   alreadySold: boolean;
-}
-
-export interface CategoryAndManufacturer {
-  categoriesManufacturerId: number;
-  category: Category;
-  manufacturer: Manufacturer;
-}
-
-export interface Category {
-  categoryId: number;
-  categoryName: string;
-}
-
-export interface Manufacturer {
-  manufacturerId: number;
-  manufacturerName: string;
+  onTheStore: boolean;
 }
 
 export interface Product {
   productId: number;
   copies: Copy[];
-  categoryAndManufacturer: CategoryAndManufacturer;
   productName: string;
+  productCategory: string;
+  productManufacturer: string;
   type: string;
   version: string;
   productDescription: string;

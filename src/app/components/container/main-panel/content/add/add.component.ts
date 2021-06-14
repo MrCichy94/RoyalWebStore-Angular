@@ -28,6 +28,8 @@ export class AddComponent implements OnInit {
   ngOnInit() {
     this.addItemForm = this.formBuilder.group({
       productName: ['', [Validators.required, Validators.pattern('.*\\S.*[a-zA-z0-9 ]{2,25}')]],
+      productManufacturer: ['', [Validators.required, Validators.pattern('.*\\S.*[a-zA-z0-9 ]{2,25}')]],
+      productCategory: ['', [Validators.required, Validators.pattern('.*\\S.*[a-zA-z0-9 ]{2,25}')]],
       sellBaseGrossPrice: ['', [Validators.required, Validators.pattern('^-?[0-9]\\d*(\\.\\d{2})?$')]],
       vatPercentage: ['', [Validators.required, Validators.pattern('^-?[0]\\d*(\\.\\d{2})?$')]]
     });
@@ -62,6 +64,8 @@ export class AddComponent implements OnInit {
   public preparePostData(data: string) {
     const stringData = JSON.stringify({
       productName: this.f.productName.value,
+      productManufacturer: this.f.productManufacturer.value,
+      productCategory: this.f.productCategory.value,
       sellBaseGrossPrice: this.f.sellBaseGrossPrice.value,
       vatPercentage: this.f.vatPercentage.value
     });

@@ -104,6 +104,7 @@ export interface Copy {
   buyDate: string;
   sellDate: string;
   alreadySold: boolean;
+  onTheStore: boolean;
 }
 
 export interface CartItem {

@@ -14,6 +14,22 @@
         </div>
       </div>
       <div class="form-group">
+        <label for="productManufacturer">Product Manufacturer</label>
+        <input type="text" formControlName="productManufacturer" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.productManufacturer.errors }" />
+        <div *ngIf="submitted && f.productManufacturer.errors" class="invalid-feedback">
+          <div *ngIf="f.productManufacturer.errors.required">Product manufacturer is required!</div>
+          <div *ngIf="f.productManufacturer.errors.pattern">Product manufacturer format is incorrect!</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="productCategory">Product Category</label>
+        <input type="text" formControlName="productCategory" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.productCategory.errors }" />
+        <div *ngIf="submitted && f.productCategory.errors" class="invalid-feedback">
+          <div *ngIf="f.productCategory.errors.required">Product category is required!</div>
+          <div *ngIf="f.productCategory.errors.pattern">Product category format is incorrect!</div>
+        </div>
+      </div>
+      <div class="form-group">
         <label for="sellBaseGrossPrice">Sell Base Gross Price</label>
         <input type="text" formControlName="sellBaseGrossPrice" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.sellBaseGrossPrice.errors }" />
         <div *ngIf="submitted && f.sellBaseGrossPrice.errors" class="invalid-feedback">

@@ -61,7 +61,7 @@ export class FilterPipe implements PipeTransform {
     }
     const resultArray = [];
     for (const item of value) {
-      if (item.categoryAndManufacturer.category.categoryName === filterString) {
+      if (item.productCategory === filterString) {
         resultArray.push(item);
       }
     }
