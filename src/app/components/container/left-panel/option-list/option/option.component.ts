@@ -31,4 +31,7 @@ export class OptionComponent implements OnInit {
   };
 
 
+  btnClickAdminProducts() {
+    this.router.navigateByUrl('/admin/products');
+  }
 }
