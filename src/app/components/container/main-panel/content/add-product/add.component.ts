@@ -17,12 +17,10 @@ export class AddComponent implements OnInit {
   submitted = false;
   requestData: string;
 
-  constructor(
-    private formBuilder: FormBuilder,
-    private router: Router,
-    private alertService: AlertService,
-    private productServiceService: ProductServiceService
-  ) {
+  constructor(private formBuilder: FormBuilder,
+              private router: Router,
+              private alertService: AlertService,
+              private productServiceService: ProductServiceService) {
   }
 
   ngOnInit() {

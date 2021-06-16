@@ -1,1 +1,52 @@
-<p>admin-product works!</p>
+<div class="content-box">
+  <div class="title" *ngIf="product">Read product: {{product.productName}}</div>
+  <div class="singleProduct" *ngIf="product">
+    <div class="item">
+      <div class="productInfo">
+        {{product.productName}} <br>
+        {{product.productManufacturer}} <br>
+        {{product.productCategory}} <br>
+        {{product.type}} <br>
+        {{product.version}} <br>
+        {{product.productDescription}} <br>
+        {{product.sellBaseGrossPrice}} zł<br>
+      </div>
+      <div class="backBtn" onclick="history.go(-1)">
+        <a>Powrót</a>
+      </div>
+      <div class="backBtn">
+        <a routerLinkActive="active" [routerLink]="['/admin/products/' + product.productId + '/add_copy']">Dodaj egzemplarz</a>
+      </div>
+    </div>
+  </div>
+  <div class="products" *ngIf="product">
+    <div class="copyTable">
+      <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+        <tr>
+          <td>Merchandising</td>
+          <td>Quantity</td>
+          <td>On Store?</td>
+          <td>Sell Price</td>
+          <td>Discount</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let copy of product.copies | paginate: { id: 'listing_pagination',
+                                                        itemsPerPage: 4,
+                                                        currentPage: page,
+                                                        totalItems: totalRecords }">
+          <td>{{copy.merchandisingCode}}</td>
+          <td>{{copy.quantity}}</td>
+          <td>{{copy.onTheStore}}</td>
+          <td>{{copy.sellCurrentGrossPrice}}</td>
+          <td>{{copy.discountValue}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="paginatorControls">
+      <pagination-controls id="listing_pagination" maxSize="5" directionLinks="true" (pageChange)="page = $event"></pagination-controls>
+    </div>
+  </div>
+</div>

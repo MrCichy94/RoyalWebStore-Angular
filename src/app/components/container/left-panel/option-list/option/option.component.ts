@@ -30,10 +30,6 @@ export class OptionComponent implements OnInit {
     this.router.navigateByUrl('/admin/products/add');
   };
 
-  btnClickAddCopy = function() {
-    this.router.navigateByUrl('/admin/products/add_copy');
-  };
-
   btnClickAdminProducts() {
     this.router.navigateByUrl('/admin/products');
   }

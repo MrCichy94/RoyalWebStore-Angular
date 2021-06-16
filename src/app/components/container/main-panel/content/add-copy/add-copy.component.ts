@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AlertService} from '../../../../../services/authentication/alert.service';
-import {ProductServiceService} from '../../../../../services/productService/product-service.service';
 import {first} from 'rxjs/operators';
 import {CopyServiceService} from '../../../../../services/copyService/copy-service.service';
 
@@ -62,9 +61,9 @@ export class AddCopyComponent implements OnInit {
 
   public preparePostData(data: string) {
     const stringData = JSON.stringify({
-      merchandisingCode: this.f.productName.value,
-      buyGrossPrice: this.f.sellBaseGrossPrice.value,
-      buyVatPercentage: this.f.vatPercentage.value
+      merchandisingCode: this.f.merchandisingCode.value,
+      buyGrossPrice: this.f.buyGrossPrice.value,
+      buyVatPercentage: this.f.buyVatPercentage.value
     });
     console.log(stringData);
     return stringData;
