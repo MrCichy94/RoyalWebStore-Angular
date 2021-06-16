@@ -27,9 +27,12 @@ export class OptionComponent implements OnInit {
   };
 
   btnClickAdd = function() {
-    this.router.navigateByUrl('/add');
+    this.router.navigateByUrl('/admin/products/add');
   };
 
+  btnClickAddCopy = function() {
+    this.router.navigateByUrl('/admin/products/add_copy');
+  };
 
   btnClickAdminProducts() {
     this.router.navigateByUrl('/admin/products');

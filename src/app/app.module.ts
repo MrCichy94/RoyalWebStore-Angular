@@ -38,6 +38,7 @@ import {MatPaginator} from '@angular/material/paginator';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { AdminProductsComponent } from './components/container/main-panel/content/admin-products/admin-products.component';
 import { AddCopyComponent } from './components/container/main-panel/content/add-copy/add-copy.component';
+import { AdminProductComponent } from './components/container/main-panel/content/admin-product/admin-product.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import { AddCopyComponent } from './components/container/main-panel/content/add-
     RegisterComponent,
     AddComponent,
     AdminProductsComponent,
-    AddCopyComponent
+    AddCopyComponent,
+    AdminProductComponent
   ],
   imports: [
     BrowserModule,
