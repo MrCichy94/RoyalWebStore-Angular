@@ -1,1 +1,43 @@
-<p>add-copy works!</p>
+<div class="content-box">
+  <div class="header-name">
+    <h2>Add new copy of product: </h2><br>
+  </div>
+  <app-alert></app-alert>
+  <form [formGroup]="addItemForm" (ngSubmit)="onSubmit()">
+    <div class="left-part">
+      <div class="form-group">
+        <label for="merchandisingCode">Merchandising code</label>
+        <input type="text" formControlName="merchandisingCode" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.merchandisingCode.errors }" />
+        <div *ngIf="submitted && f.merchandisingCode.errors" class="invalid-feedback">
+          <div *ngIf="f.merchandisingCode.errors.required">Merchandising code is required!</div>
+          <div *ngIf="f.merchandisingCode.errors.pattern">Merchandising code format is incorrect!</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="buyGrossPrice">Buy Gross Price</label>
+        <input type="text" formControlName="buyGrossPrice" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.buyGrossPrice.errors }" />
+        <div *ngIf="submitted && f.buyGrossPrice.errors" class="invalid-feedback">
+          <div *ngIf="f.buyGrossPrice.errors.required">Buy Gross Price is required!</div>
+          <div *ngIf="f.buyGrossPrice.errors.pattern">Allowed 'Buy Gross Price' format is similar to "xy.pq" !</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="buyVatPercentage">Buy VAT Percentage</label>
+        <input type="text" formControlName="buyVatPercentage" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.buyVatPercentage.errors }" />
+        <div *ngIf="submitted && f.buyVatPercentage.errors" class="invalid-feedback">
+          <div *ngIf="f.buyVatPercentage.errors.required">Buy VAT Percentage is required!</div>
+          <div *ngIf="f.buyVatPercentage.errors.pattern">Allowed 'Buy VAT Percentage' format is similar to "0.xy" ! </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <button [disabled]="loading" class="btn btn-primary">
+          <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+          Submit
+        </button>
+        <a routerLink="/add" class="btn btn-link">Cancel</a>
+      </div>
+    </div>
+  </form>
+</div>
+
+

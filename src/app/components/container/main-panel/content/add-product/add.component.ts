@@ -72,5 +72,4 @@ export class AddComponent implements OnInit {
     console.log(stringData);
     return stringData;
   }
-
 }

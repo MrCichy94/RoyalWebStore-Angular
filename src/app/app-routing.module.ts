@@ -13,6 +13,7 @@ import {RegisterComponent} from './components/container/main-panel/content/regis
 import {CopiesComponent} from './components/container/main-panel/content/products/product/copies/copies.component';
 import {AddComponent} from './components/container/main-panel/content/add-product/add.component';
 import {AdminProductsComponent} from './components/container/main-panel/content/admin-products/admin-products.component';
+import {AddCopyComponent} from './components/container/main-panel/content/add-copy/add-copy.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuard] },
@@ -27,6 +28,7 @@ const routes: Routes = [
   {path: 'customers/orders/details', component: OrderComponent},
   {path: 'add', component: AddComponent},
   {path: 'admin/products', component: AdminProductsComponent},
+  {path: 'add_copy', component: AddCopyComponent},
 ];
 
 @NgModule({
