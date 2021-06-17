@@ -38,7 +38,14 @@
                                                         totalItems: totalRecords }">
           <td>{{copy.merchandisingCode}}</td>
           <td>{{copy.quantity}}</td>
-          <td>{{copy.onTheStore}}</td>
+          <td>
+            <div class="tableBox">
+              <div class="textTable">{{copy.onTheStore}}</div>
+              <div class="statusBtn">
+                <a role="button" (click)="changeStatus(product.productId, copy.copyId)">zmień</a>
+              </div>
+            </div>
+          </td>
           <td>{{copy.sellCurrentGrossPrice}}</td>
           <td>{{copy.discountValue}}</td>
         </tr>
