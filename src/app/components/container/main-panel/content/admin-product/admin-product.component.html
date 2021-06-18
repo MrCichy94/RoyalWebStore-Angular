@@ -37,7 +37,17 @@
                                                         currentPage: page,
                                                         totalItems: totalRecords }">
           <td>{{copy.merchandisingCode}}</td>
-          <td>{{copy.quantity}}</td>
+          <td>
+            <div class="tableBox">
+              <div class="textTable">{{copy.quantity}}</div>
+              <div class="statusBtn">
+                <a role="button" (click)="decreaseQuantity(product.productId, copy.copyId)">-</a>
+              </div>
+              <div class="statusBtn">
+                <a role="button" (click)="increaseQuantity(product.productId, copy.copyId)">+</a>
+              </div>
+            </div>
+          </td>
           <td>
             <div class="tableBox">
               <div class="textTable">{{copy.onTheStore}}</div>

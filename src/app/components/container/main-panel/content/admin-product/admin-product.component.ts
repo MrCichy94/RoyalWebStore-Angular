@@ -37,8 +37,23 @@ export class AdminProductComponent implements OnInit {
   changeStatus(productId: number, copyId: number): void {
     this.copyServiceService.changeStatusCopyOfProductWithGivenIds(productId, copyId)
       .subscribe(
-        (data) =>{
-          console.log(data);
+        (data) => {
+          this.ngOnInit();
+        });
+  }
+
+  increaseQuantity(productId: number, copyId: number): void {
+    this.copyServiceService.increaseQuantityOfCopyWithGivenId(productId, copyId)
+      .subscribe(
+        (data) => {
+          this.ngOnInit();
+        });
+  }
+
+  decreaseQuantity(productId: number, copyId: number): void {
+    this.copyServiceService.decreaseQuantityOfCopyWithGivenId(productId, copyId)
+      .subscribe(
+        (data) => {
           this.ngOnInit();
         });
   }

@@ -27,13 +27,40 @@ export class CopyServiceService {
   public changeStatusCopyOfProductWithGivenIds(productId: number, copyId: number) {
     const headers = new HttpHeaders({
       'Content-type': 'application/json',
-      'Content-Length': '0',
+      'Authorization': 'Bearer ' + sessionStorage.getItem('access_token')
+    });
+    console.log(sessionStorage.getItem('access_token'));
+    if (sessionStorage.getItem('access_token') != null) {
+      console.log('Redirect for resource: ' + 'http://localhost:8080/products/' + productId + '/' + copyId);
+      return this.http.patch('http://localhost:8080/products/' + productId + '/' + copyId, [], {headers: headers});
+    } else {
+      this.router.navigate(['/login']);
+    }
+  }
+
+  increaseQuantityOfCopyWithGivenId(productId: number, copyId: number) {
+    const headers = new HttpHeaders({
+      'Content-type': 'application/json',
       'Authorization': 'Bearer ' + sessionStorage.getItem('access_token')
     });
     console.log(sessionStorage.getItem('access_token'));
     if (sessionStorage.getItem('access_token') != null) {
       console.log('Redirect for resource: ' + 'http://localhost:8080/products/' + productId + '/' + copyId);
       return this.http.post('http://localhost:8080/products/' + productId + '/' + copyId, [], {headers: headers});
+    } else {
+      this.router.navigate(['/login']);
+    }
+  }
+
+  decreaseQuantityOfCopyWithGivenId(productId: number, copyId: number) {
+    const headers = new HttpHeaders({
+      'Content-type': 'application/json',
+      'Authorization': 'Bearer ' + sessionStorage.getItem('access_token')
+    });
+    console.log(sessionStorage.getItem('access_token'));
+    if (sessionStorage.getItem('access_token') != null) {
+      console.log('Redirect for resource: ' + 'http://localhost:8080/products/' + productId + '/' + copyId);
+      return this.http.delete('http://localhost:8080/products/' + productId + '/' + copyId, {headers: headers});
     } else {
       this.router.navigate(['/login']);
     }
