@@ -15,10 +15,12 @@ import {AddComponent} from './components/container/main-panel/content/add-produc
 import {AdminProductsComponent} from './components/container/main-panel/content/admin-products/admin-products.component';
 import {AddCopyComponent} from './components/container/main-panel/content/add-copy/add-copy.component';
 import {AdminProductComponent} from './components/container/main-panel/content/admin-product/admin-product.component';
+import {UserDetailsComponent} from './components/container/main-panel/content/user-details/user-details.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
+  { path: 'user', component: UserDetailsComponent },
   { path: 'register', component: RegisterComponent },
   {path: 'products', component: ProductsComponent },
   {path: 'products/:productId', component: ProductComponent},
